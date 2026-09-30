@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>บันทึกข้อมูลสำเร็จ | มจพ. KMUTNB</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- กล่องใหญ่ที่ครอบทั้งหน้า แบ่งเป็น 2 ฝั่ง คือ เมนูซ้าย กับ เนื้อหาหลัก -->
+  <div class="page">
+
+    <!-- ========== เมนูด้านซ้าย (Sidebar) เหมือนหน้าอื่นทุกอย่าง ========== -->
+    <aside class="sidebar">
+
+      <img src="assets/logo.png" alt="โลโก้ KMUTNB" class="logo">
+      <p class="sidebar-subtitle">
+        KING MONGKUT'S UNIVERSITY<br>
+        OF TECHNOLOGY NORTH<br>
+        BANGKOK
+      </p>
+
+      <nav class="menu">
+        <a href="index.html" class="menu-item">หน้าหลัก</a>
+        <a href="application.html" class="menu-item">ข้อมูลการรับสมัคร</a>
+        <a href="course.html" class="menu-item">หลักสูตรที่เปิดรับ</a>
+        <a href="#" class="menu-item menu-item-active">สมัครนักศึกษา</a>
+        <a href="contact.html" class="menu-item">ติดต่อเรา</a>
+      </nav>
+
+      <img src="assets/gears.png" alt="รูปเฟือง KMUTNB" class="gear-image">
+      <div class="orange-strip"></div>
+
+    </aside>
+
+    <!-- ========== เนื้อหาหลัก (Main Content) ========== -->
+    <main class="content">
+      <div class="form-panel">
+
+        <!-- ---------- หัวข้อของฟอร์ม ---------- -->
+        <div class="form-panel-header">
+          <h1 class="form-title">สมัครนักศึกษาใหม่</h1>
+          <p class="form-subtitle">กรอกข้อมูลให้ครบถ้วน เพื่อดำเนินการสมัคร</p>
+        </div>
+
+        <!-- ข้อความแจ้งเตือนว่าบันทึกสำเร็จแล้ว -->
+        <div class="success-banner">
+          บันทึกข้อมูลของท่านเรียบร้อยแล้ว สามารถกลับมาแก้ไขได้ก่อนปิดรับสมัคร
+        </div>
+
+        <!-- แสดงข้อมูลที่กรอกไว้ (ค่าตัวอย่าง) -->
+        <form>
+
+          <!-- ---------- ส่วนที่ 1 : ข้อมูลส่วนตัว ---------- -->
+          <section class="form-card">
+            <h2 class="form-card-title">ข้อมูลส่วนตัว</h2>
+
+            <div class="form-row">
+
+              <!-- รูปโปรไฟล์ที่อัปโหลดไว้แล้ว -->
+              <div class="photo-upload">
+                <label for="photoInput" class="photo-circle photo-circle-filled">
+                  <img src="assets/profit.png" alt="รูปโปรไฟล์ผู้สมัคร" class="photo-preview">
+                </label>
+                <input type="file" id="photoInput" accept="image/*" class="hidden-file-input">
+                <p class="photo-caption">อัปโหลดรูปถ่าย<br>(ขนาดไม่เกิน 5MB)</p>
+              </div>
+
+              <div class="form-fields">
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>คำนำหน้า <span class="required">*</span></label>
+                    <select>
+                      <option>เลือกคำนำหน้า</option>
+                      <option selected>นาย</option>
+                      <option>นาง</option>
+                      <option>นางสาว</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>ชื่อจริง <span class="required">*</span></label>
+                    <input type="text" value="นิติการ">
+                  </div>
+                  <div class="form-group">
+                    <label>นามสกุล <span class="required">*</span></label>
+                    <input type="text" value="นาคเลือกทอง">
+                  </div>
+                  <div class="form-group">
+                    <label>สัญชาติ <span class="required">*</span></label>
+                    <input type="text" value="ไทย">
+                  </div>
+                  <div class="form-group">
+                    <label>ศาสนา <span class="required">*</span></label>
+                    <input type="text" value="พุทธ">
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>ชื่อจริง (ภาษาอังกฤษ)</label>
+                    <input type="text" value="Nitigan">
+                  </div>
+                  <div class="form-group">
+                    <label>นามสกุล (ภาษาอังกฤษ)</label>
+                    <input type="text" value="Nakjuatong">
+                  </div>
+                  <div class="form-group">
+                    <label>วัน/เดือน/ปีเกิด <span class="required">*</span></label>
+                    <input type="text" value="09/11/2547">
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>เลขบัตรประจำตัวประชาชน <span class="required">*</span></label>
+                    <input type="text" value="1-6667-67670-11-9">
+                  </div>
+                  <div class="form-group form-group-wide">
+                    <label>เพศ <span class="required">*</span></label>
+                    <div class="radio-group">
+                      <label class="radio-item"><input type="radio" name="gender" checked> ชาย</label>
+                      <label class="radio-item"><input type="radio" name="gender"> หญิง</label>
+                      <label class="radio-item"><input type="radio" name="gender"> อื่นๆ</label>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- ไฟล์ที่แนบไว้แล้ว แสดงเป็นกล่องข้อความ ไม่ใช่ปุ่มเลือกไฟล์ เพราะอัปโหลดเสร็จแล้ว -->
+            <div class="form-row">
+              <div class="form-group form-group-full">
+                <label>ใบแสดงผลการเรียน/Transcript <span class="required">*</span></label>
+                <div class="uploaded-file-box">
+                  <span class="uploaded-file-icon">📄</span> nitigan5_0.pdf
+                </div>
+              </div>
+            </div>
+
+          </section>
+
+          <!-- ---------- ส่วนที่ 2 : ข้อมูลการติดต่อ + ข้อมูลผู้ปกครอง ---------- -->
+          <section class="form-card">
+
+            <h2 class="form-card-title">ข้อมูลการติดต่อ</h2>
+
+            <div class="form-row">
+              <div class="form-group form-group-wide">
+                <label>ที่อยู่ปัจจุบัน <span class="required">*</span></label>
+                <input type="text" value="บ้านเลขที่ 6 หมู่ที่ 7 ซอยเนินหอม">
+              </div>
+              <div class="form-group">
+                <label>จังหวัด <span class="required">*</span></label>
+                <input type="text" value="ปราจีนบุรี">
+              </div>
+              <div class="form-group">
+                <label>อำเภอ/เขต <span class="required">*</span></label>
+                <input type="text" value="เมืองปราจีนบุรี">
+              </div>
+              <div class="form-group">
+                <label>ตำบล <span class="required">*</span></label>
+                <input type="text" value="เนินหอม">
+              </div>
+              <div class="form-group">
+                <label>รหัสไปรษณีย์ <span class="required">*</span></label>
+                <input type="text" value="25230">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>เบอร์โทรศัพท์มือถือ <span class="required">*</span></label>
+                <input type="text" value="067-676-6767">
+              </div>
+              <div class="form-group">
+                <label>อีเมล <span class="required">*</span></label>
+                <input type="email" value="example@email.com">
+              </div>
+              <div class="form-group">
+                <label>LINE ID</label>
+                <input type="text" value="-">
+              </div>
+            </div>
+
+            <h2 class="form-card-title form-card-title-spaced">ข้อมูลผู้ปกครอง</h2>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>คำนำหน้า <span class="required">*</span></label>
+                <select>
+                  <option>เลือกคำนำหน้า</option>
+                  <option selected>นาย</option>
+                  <option>นาง</option>
+                  <option>นางสาว</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>ชื่อจริง <span class="required">*</span></label>
+                <input type="text" value="เทคโนโลยี">
+              </div>
+              <div class="form-group">
+                <label>นามสกุล <span class="required">*</span></label>
+                <input type="text" value="พระนครใต้">
+              </div>
+              <div class="form-group">
+                <label>เลขบัตรประจำตัวประชาชน <span class="required">*</span></label>
+                <input type="text" value="1-2345-678910-11-3">
+              </div>
+            </div>
+
+          </section>
+
+          <!-- ---------- แถบปุ่มด้านล่างสุด ---------- -->
+          <div class="form-panel-footer">
+            <a href="apply.html" class="btn-cancel">ยกเลิก</a>
+            <!-- บันทึกไปแล้ว ปุ่มนี้จึงกดไม่ได้อีก -->
+            <button type="button" class="btn-save" disabled>บันทึกแล้ว</button>
+          </div>
+
+        </form>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- ========== ท้ายเว็บ (Footer) เหมือนหน้าอื่น ========== -->
+  <footer class="footer">
+
+    <div class="footer-top">
+
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="โลโก้ KMUTNB" class="footer-logo">
+        <p class="footer-address">
+          มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ<br>
+          1518 ถ.ประชาราษฎร์ 1 แขวงวงศ์สว่าง เขตบางซื่อ<br>
+          กรุงเทพมหานคร 10800<br>
+          <img src="assets/phone.png" alt="" class="phone-icon"> 0 2555 2000
+        </p>
+      </div>
+
+      <div class="footer-social">
+        <p class="footer-social-title">ติดตามเรา</p>
+        <div class="social-icons">
+          <a href="#"><img src="assets/fb.png" alt="Facebook"></a>
+          <a href="#"><img src="assets/line.png" alt="LINE"></a>
+          <a href="#"><img src="assets/ig.png" alt="Instagram"></a>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="footer-copyright">&copy; 2026 KMUTNB All rights reserved.</p>
+
+  </footer>
+
+</body>
+</html>

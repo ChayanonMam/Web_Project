@@ -1,0 +1,1937 @@
+/* =========================================================
+   STYLE.CSS — SECTION GUIDE
+   หมายเหตุ: ไฟล์นี้จัดหัวข้อด้วย comment เท่านั้น
+   ค่า CSS / selector / property / media query เดิมไม่ถูกแก้ไข
+
+   [00] Global / Reset
+   [01] Shared Layout
+   [02] Shared Sidebar
+   [03] Shared Main Content
+   [04] index.html — Home
+   [05] Shared Footer
+   [06] apply.html + apply-saved.html — Application Form
+   [07] contact.html — Contact
+   [08] course.html — Courses
+   [09] department-fitm — Department List
+   [10] Department Detail
+   [11] Techno.html — New Department List
+   [12] Shared Responsive ≤ 768px
+   [13] Coutartcas70.html — TCAS70
+   [14] IT.html + IM.html — Department Detail
+   [15] Shared Image Responsive
+   [16] Tablet ≤ 1024px
+   [17] Mobile ≤ 768px
+   [18] Small Mobile ≤ 480px
+   ========================================================= */
+
+/* =========================================================
+   [00] GLOBAL / RESET
+   ใช้ร่วมทุกหน้า — รีเซ็ตค่าเริ่มต้นและพื้นฐานของเว็บไซต์
+   ========================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Prompt", sans-serif;
+  background-color: #f4f4f3; 
+  color: #1b1b1b;   
+  box-shadow: inset 0 0px 10px #a19c98;           
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* =========================================================
+   [01] SHARED LAYOUT — โครงสร้างหลัก ใช้ร่วมทุกหน้า
+   ========================================================= */
+/* =========================================================
+   1) โครงหลักของหน้าเว็บ: แบ่งเป็น "เมนูซ้าย" กับ "เนื้อหาหลัก"
+   ใช้ display: flex เพื่อวางสองกล่องนี้เรียงกันในแนวนอน
+   ========================================================= */
+.page {
+  display: flex;
+  min-height: 100vh; /* สูงเต็มจอเป็นอย่างน้อย */
+}
+
+
+/* =========================================================
+   [02] SHARED SIDEBAR — เมนูด้านซ้าย ใช้ร่วมทุกหน้า
+   ========================================================= */
+/* =========================================================
+   2) เมนูด้านซ้าย (Sidebar)
+   ========================================================= */
+.sidebar {
+  width: 210px;              /* ความกว้างคงที่ของเมนู */
+  flex-shrink: 0;            /* ไม่ให้เมนูหดตัวเวลาพื้นที่ไม่พอ */
+  background-color: #ffffff;
+  padding: 32px 24px 0 24px;
+  border-right: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  width: 150px;
+}
+
+.sidebar-subtitle {
+  font-size: 10px;
+  color: #8a8a8a;
+  line-height: 1.5;
+  margin-top: 6px;
+}
+
+/* กล่องที่รวมลิงก์เมนูทั้งหมด */
+.menu {
+  display: flex;
+  flex-direction: column;   /* เรียงลิงก์จากบนลงล่าง */
+  gap: 8px;
+  margin-top: 32px;
+}
+
+
+.menu-item {
+  display: block;
+  padding: 14px 16px;
+  border-radius: 8px;
+  font-size: 15px;
+  color: #4a4a4a;
+  
+}
+
+/* เวลาเอาเมาส์ไปชี้ที่เมนู ให้พื้นหลังเปลี่ยนสีนิดหน่อย */
+.menu-item:hover {
+  background-color: #f59652;
+  color: #ffffff;
+  box-shadow: 0 0px 10px #000000;
+  transition: 0.2s;
+}
+
+/* เมนูที่กำลังเลือกอยู่ (หน้าหลัก) ให้เป็นพื้นสีส้ม */
+.menu-item-active {
+  background-color: #f2721f;
+  color: #ffffff;
+  text-align: center;
+  font-weight: 600;
+  box-shadow: 0 0px 10px #000000;
+}
+
+.gear-image {
+  width: 100%;
+  margin-top: auto;
+  padding-top: 40px;
+}
+
+.gears-image {
+  width: 100%;
+  margin-top: auto;
+  padding-top: 40px;
+}
+
+.orange-strip {
+  height: 50px;
+  background-color: #f2721f;
+  margin-top: -6px;
+}
+
+
+/* =========================================================
+   [03] SHARED MAIN CONTENT — พื้นที่เนื้อหาหลัก ใช้ร่วมทุกหน้า
+   ========================================================= */
+/* =========================================================
+   3) เนื้อหาหลัก (Main Content)
+   ========================================================= */
+.content {
+  flex: 1;
+  min-width: 0;
+  padding: 28px 40px;
+  box-shadow: inset 0 0px 10px #a19c98;
+}
+
+
+/* =========================================================
+   [04] INDEX.HTML — หน้าแรก / HOME
+   Hero, ข้อมูลแนะนำ และส่วนการ์ด “ทำไมต้อง มจพ.”
+   ========================================================= */
+/* =========================================================
+   4) ส่วนหัว (Hero) : ข้อความต้อนรับ + ปุ่มสมัคร + รูปตึก
+   ========================================================= */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  flex: 1 1 400px;
+  min-width: 280px;
+}
+
+.hero-welcome {
+  color: #f2721f;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.hero-title {
+  font-size: 30px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.hero-title-orange {
+  color: #f2721f;
+}
+
+.hero-university {
+  font-size: 16px;
+  color: #4a4a4a;
+  margin-top: 10px;
+}
+
+.hero-line {
+  width: 56px;
+  height: 3px;
+  background-color: #f2721f;
+  border: none;
+  margin: 20px 0;
+}
+
+.hero-description {
+  font-size: 14px;
+  color: #8a8a8a;
+  line-height: 1.7;
+  max-width: 380px;
+  margin-bottom: 16px;
+}
+
+/* ปุ่มสีส้ม ใช้ทั้งปุ่ม "สมัครนักศึกษาใหม่" */
+.btn-orange {
+  display: inline-block;
+  background-color: #f2721f;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: 8px;
+  box-shadow: 0 0px 10px #000000;
+}
+
+.btn-orange:hover {
+  background-color: #f09151;
+  transition: 0.2s;
+  color: #130404;
+}
+
+.hero-image {
+  flex: 1 1 720px;
+  opacity: 0.2;
+  min-width: 0;
+  z-index: -1;
+}
+
+
+/* =========================================================
+   5) ส่วน "ทำไมต้อง มจพ." และการ์ด 4 ใบ
+   ========================================================= */
+.why {
+  margin-top: 26px;
+}
+
+.why-title {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  border-left: 4px solid #f2721f;
+  padding-left: 10px;
+}
+
+/* กล่องที่รวมการ์ดทั้ง 4 ใบ*/
+.card-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr; /* แบ่งเป็น 4 คอลัมน์เท่า ๆ กัน */
+  gap: 10px;
+  
+}
+
+.responsive-img {
+  width: 105%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-left: 60px;
+  box-shadow: 0 4px 8px #4a4a4a;
+}
+
+.responsive-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.responsive-Colta {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.responsive-Colta img {
+  width: 550px;
+  height: 560px;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px #4a4a4a;
+}
+
+.card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 50px;
+  height: 350px;  /* ความสูงของการ์ดแต่ละใบ */
+  flex-grow: 1;
+  box-shadow: 0 4px 8px #4a4a4a;
+}
+
+/* กล่องรูปด้านในการ์ด (ตอนนี้เป็นพื้นสีไล่เฉด + ไอคอนแทนรูปจริง) */
+.card-image {
+  width: 290px;
+  height: 220px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* บังคับให้รูปในการ์ดพอดีกับกล่อง ไม่ใช้ margin/box-shadow ของ .responsive-img ที่ตั้งไว้สำหรับหน้าอื่น */
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  margin-left: 0;
+  box-shadow: none;
+  border-radius: 8px;
+}
+
+.card-image-1 { background-color: #2c2f36; }
+.card-image-2 { background-color: #23262d; }
+.card-image-3 { background-color: #f2721f; }
+.card-image-4 { background-color: #3a4038; }
+
+.card-title {
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.card-text {
+  text-align: center;
+  font-size: 12.5px;
+  color: #8a8a8a;
+  line-height: 1.6;
+}
+
+/* ปุ่มขาว "ดูประกาศการรับสมัคร" */
+.btn-white {
+  display: inline-block;
+  margin-top: 14px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  padding: 14px 22px;
+  border-radius: 999px;   /* ทำให้ปุ่มโค้งมนเป็นแคปซูล */
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 2px 4px #4a4a4a;
+}
+
+.btn-white:hover {
+  background-color: #f4f4f3;
+  transition: 0.2s;
+}
+
+
+/* =========================================================
+   [05] SHARED FOOTER — ท้ายเว็บไซต์ ใช้ร่วมหลายหน้า
+   ========================================================= */
+/* =========================================================
+   6) ท้ายเว็บ (Footer)
+   ========================================================= */
+.footer {
+  background-color: #2b2b2b;
+  color: #d8d8d8;
+  padding: 32px 48px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.footer-logo {
+  width: 140px;
+  margin-bottom: 14px;
+}
+
+.footer-address {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #cfcfcf;
+}
+
+.phone-icon {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+}
+
+.footer-social-title {
+  font-size: 13px;
+  color: #a8a8a8;
+  margin-bottom: 10px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icons a {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-icons a:hover {
+  background-color: #f2721f;
+  transition: 0.2s;
+}
+
+.social-icons img {
+  width: 14px;
+  height: 14px;
+}
+
+.footer-copyright {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 12px;
+  color: #8f8f8f;
+  text-align: right;
+}
+
+
+/* =========================================================
+   7) ปรับหน้าเว็บสำหรับจอมือถือ / จอแคบ (Responsive)
+   เมื่อความกว้างหน้าจอน้อยกว่า 768px ให้ใช้กฎด้านล่างนี้แทน
+   ========================================================= */
+/* =========================================================
+   [06] APPLY.HTML + APPLY-SAVED.HTML — แบบฟอร์มสมัครนักศึกษา
+   ========================================================= */
+/* =========================================================
+   8) แบบฟอร์มสมัครนักศึกษาใหม่ (หน้า apply.html)
+   ========================================================= */
+
+/* กล่องใหญ่ที่ครอบฟอร์มทั้งหมด */
+.form-panel {
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;   /* ทำให้มุมโค้งของแถบท้ายฟอร์มโค้งตามกล่องนี้ */
+}
+
+/* หัวข้อด้านบนของฟอร์ม */
+.form-panel-header {
+  padding: 24px 28px 8px 28px;
+}
+
+.form-title {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.form-subtitle {
+  font-size: 13px;
+  color: #8a8a8a;
+  margin-top: 4px;
+}
+
+/* กล่องข้อความสีเขียวแจ้งว่าบันทึกสำเร็จแล้ว (หน้า apply-saved.html) */
+.success-banner {
+  margin: 0 28px 4px 28px;
+  padding: 12px 16px;
+  background-color: #e8f6ec;
+  border: 1px solid #bfe6c9;
+  color: #1e7a3a;
+  font-size: 13px;
+  border-radius: 8px;
+}
+
+/* การ์ดย่อยแต่ละส่วนในฟอร์ม เช่น "ข้อมูลส่วนตัว" "ข้อมูลการติดต่อ" */
+.form-card {
+  padding: 20px 28px;
+  border-top: 1px solid #eeeeee;
+}
+
+.form-card-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.form-card-title-spaced {
+  margin-top: 24px;
+}
+
+/* แถวของฟอร์ม ให้ช่องกรอกเรียงกันแนวนอน และตกบรรทัดได้เมื่อจอแคบ */
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+/* ช่องกรอกข้อมูล 1 ช่อง (label + input) */
+.form-group {
+  flex: 1 1 130px;   /* ขยายได้ แต่ไม่แคบกว่า 130px */
+  min-width: 0;
+}
+
+/* ช่องกรอกที่ต้องการความกว้างมากกว่าปกติ เช่น ที่อยู่ */
+.form-group-wide {
+  flex: 2 1 260px;
+}
+
+/* ช่องกรอกที่ต้องการเต็มความกว้างแถว เช่น ไฟล์แนบ */
+.form-group-full {
+  flex: 1 1 100%;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 6px;
+  color: #333333;
+}
+
+/* เครื่องหมายดอกจัน สีแดง สำหรับช่องที่ต้องกรอก */
+.required {
+  color: #e53935;
+}
+
+/* จัดสไตล์ input, select ให้เหมือนกันหมด */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group select {
+  width: 100%;
+  padding: 10px 12px;
+  font-family: "Prompt", sans-serif;
+  font-size: 13px;
+  border: 1px solid #dcdcdc;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #333333;
+}
+
+/* เปลี่ยนกรอบสีส้มตอนกำลังพิมพ์อยู่ในช่อง */
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #f2721f;
+}
+
+/* กล่องอัปโหลดไฟล์ PDF (ใบแสดงผลการเรียน) */
+.file-input-box {
+  width: 100%;
+  padding: 10px 12px;
+  font-family: "Prompt", sans-serif;
+  font-size: 13px;
+  border: 1px solid #dcdcdc;
+  border-radius: 6px;
+  background-color: #ffffff;
+}
+
+/* กล่องแสดงชื่อไฟล์ที่อัปโหลดไว้แล้ว (หน้า apply-saved.html) */
+.uploaded-file-box {
+  padding: 10px 12px;
+  font-size: 13px;
+  border: 1px solid #dcdcdc;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  color: #333333;
+}
+
+.uploaded-file-icon {
+  margin-right: 4px;
+}
+
+/* กลุ่มปุ่มตัวเลือกเพศ เรียงในแนวนอน */
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  height: 38px;
+}
+
+.radio-item {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  color: #333333;
+  white-space: nowrap;
+  margin-right: 18px;   /* เว้นระยะห่างระหว่างตัวเลือกแต่ละอัน */
+}
+
+.radio-item input {
+  margin-right: 6px;
+}
+
+/* ---------- วงกลมอัปโหลดรูปโปรไฟล์ ---------- */
+.photo-upload {
+  flex: 0 0 110px;
+  text-align: center;
+}
+
+/* กล่องช่องกรอกข้อมูลฝั่งขวาของรูปโปรไฟล์ ให้ขยายเต็มพื้นที่ที่เหลือ */
+.form-fields {
+  flex: 1 1 400px;
+  min-width: 0;
+}
+
+.photo-circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: #d9d9d9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  cursor: pointer;
+  position: relative;
+}
+
+.photo-camera-icon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: #f2721f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* วงกลมรูปโปรไฟล์ตอนมีรูปแล้ว (หน้า apply-saved.html) */
+.photo-circle-filled {
+  background-color: transparent;
+  overflow: hidden;
+}
+
+.photo-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* ซ่อน input type=file จริง ๆ ไว้ (แต่ยังกดผ่าน label ครอบได้ตามปกติ) */
+.hidden-file-input {
+  display: none;
+}
+
+.photo-caption {
+  font-size: 11px;
+  color: #8a8a8a;
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+/* ---------- แถบท้ายฟอร์ม (ปุ่มยกเลิก / บันทึก) ---------- */
+.form-panel-footer {
+  background-color: #f4f4f3;
+  padding: 16px 28px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.btn-cancel,
+.btn-save {
+  display: inline-block;
+  text-align: center;
+  font-family: "Prompt", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 26px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  background-color: #fbd9bd;
+  color: #b35c14;
+}
+
+.btn-cancel:hover {
+  background-color: #f7c79a;
+  transition: 0.2s;
+}
+
+.btn-save {
+  background-color: #f2721f;
+  color: #ffffff;
+}
+
+.btn-save:hover {
+  background-color: #d9600f;
+  transition: 0.2s;
+}
+
+/* ปุ่ม "บันทึกแล้ว" ที่กดซ้ำไม่ได้ (หน้า apply-saved.html) */
+.btn-save:disabled {
+  cursor: default;
+  opacity: 0.85;
+}
+
+.btn-save:disabled:hover {
+  background-color: #f2721f;
+  transition: 0.2s;
+}
+
+
+/* =========================================================
+   [07] CONTACT.HTML — หน้าติดต่อเรา
+   ========================================================= */
+/* =========================================================
+   10) หน้าติดต่อเรา (contact.html)
+   ========================================================= */
+
+/* หัวข้อบนสุดของหน้า */
+.page-header {
+  margin-bottom: 24px;
+}
+
+.page-header-title {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.page-header-subtitle {
+  font-size: 13px;
+  color: #8a8a8a;
+  margin-top: 6px;
+  line-height: 1.7;
+}
+
+/* การ์ดใหญ่ที่รวม "ข้อมูลติดต่อ" กับ "แผนที่" ไว้ด้วยกัน */
+.contact-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  box-shadow: 0 4px 8px #4a4a4a;
+  height: 700px;  /* ความสูงของกล่องใหญ่ */
+}
+
+/* ฝั่งซ้าย: กล่องข้อความข้อมูลติดต่อ */
+.contact-info {
+  flex: 1 1 300px;
+  min-width: 0;
+}
+
+.contact-info-title {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.contact-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #f2721f;
+  margin-bottom: 4px;
+}
+
+.contact-text {
+  font-size: 13.5px;
+  color: #333333;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.contact-link {
+  color: #333333;
+  text-decoration: underline;
+}
+
+/* แถวไอคอนโซเชียลวงกลมสีส้ม */
+.contact-social {
+  display: flex;
+  margin-top: 4px;
+}
+
+.contact-social a {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: #f2721f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.contact-social a:hover {
+  background-color: #d9600f;
+  transition: 0.4s;
+}
+
+.contact-social img {
+  width: 17px;
+  height: 17px;
+}
+
+/* ฝั่งขวา: กล่องแผนที่ */
+.contact-map {
+  flex: 1 1 340px;
+  min-width: 0;
+  min-height: 320px;
+  border-radius: 10px;
+  overflow: hidden;   /* ทำให้มุมของแผนที่ (iframe) โค้งตามกล่อง */
+}
+
+
+/* =========================================================
+   [08] COURSE(1).HTML — หน้าหลักสูตรที่เปิดรับ
+   ========================================================= */
+/* =========================================================
+   12) หน้าหลักสูตรที่เปิดรับ (course.html)
+   ========================================================= */
+.course-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.course-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 24px 24px 24px 24px;
+  flex: 1 2px 180px;
+  text-align: center;
+  box-shadow: 0 4px 8px #4a4a4a;
+  transition: transform 0.2s;
+}
+
+.course-card-title {
+  color: #f2721f;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+.course-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  display: block;
+}
+
+.btn-department {
+  display: inline-block;
+  background-color: #ffbb8b;
+  color: #7a3b0a;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 10px 30px;
+  border-radius: 8px;
+}
+
+.btn-department:hover {
+  background-color: #f2721f;
+  color: #ffffff;
+  transition: 0.2s;
+}
+
+
+/* =========================================================
+   [09] DEPARTMENT-FITM / หน้ารายชื่อภาควิชา
+   ========================================================= */
+/* =========================================================
+   13) หน้ารายชื่อภาควิชา (department-fitm.html)
+   ========================================================= */
+.dept-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dept-card {
+  background-color: #3c3c3c;
+  border-radius: 14px;
+  padding: 22px 26px;
+}
+
+.dept-card-header {
+  margin-bottom: 16px;
+}
+
+.dept-tag {
+  display: block;
+  color: #f2721f;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.dept-title {
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.dept-card-body {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.dept-icon-box {
+  width: 110px;
+  height: 110px;
+  flex-shrink: 0;
+  background-color: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.dept-icon {
+  max-width: 75%;
+  max-height: 75%;
+  object-fit: contain;
+}
+
+.dept-btn {
+  display: inline-block;
+  flex-shrink: 0;
+  background-color: #f2721f;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 14px 22px;
+  border-radius: 8px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.dept-btn:hover {
+  background-color: #d9600f;
+  transition: 0.2s;
+}
+
+.dept-desc {
+  flex: 1 1 300px;
+  color: #e6e6e6;
+  font-size: 12.5px;
+  line-height: 1.9;
+}
+
+
+/* =========================================================
+   [10] DEPARTMENT DETAIL — หน้ารายละเอียดภาควิชา
+   เช่น dept-im.html และหน้าภาควิชาอื่นที่ใช้โครงสร้างเดียวกัน
+   ========================================================= */
+/* =========================================================
+   14) หน้ารายละเอียดภาควิชา (dept-im.html และหน้าภาควิชาอื่น ๆ)
+   ========================================================= */
+.dept-detail-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 14px;
+  padding: 26px;
+}
+
+.dept-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.dept-detail-tag {
+  display: block;
+  color: #f2721f;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.dept-detail-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.btn-dept-back {
+  display: inline-block;
+  flex-shrink: 0;
+  background-color: #ffbb8b;
+  color: #7a3b0a;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 10px 28px;
+  border-radius: 20px;
+}
+
+.btn-dept-back:hover {
+  background-color: #f2721f;
+  color: #ffffff;
+  transition: 0.2s;
+}
+
+/* แบนเนอร์ภาควิชา (โปสเตอร์จำลอง ถ้ามีรูปจริงสามารถแทนที่ด้วย <img> ได้) */
+.dept-banner {
+  background: linear-gradient(135deg, #0b2545, #123a6b);
+  border: 3px solid #f2a71b;
+  border-radius: 16px;
+  padding: 36px 24px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.dept-banner-eng {
+  color: #f2a71b;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.dept-banner-title {
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin: 4px 0 10px 0;
+}
+
+.dept-banner-th {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.dept-banner-sub {
+  color: #b9c6d6;
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+.dept-banner-logo {
+  width: 80px;
+  margin: 16px auto 0 auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+
+/* รายละเอียดหลักสูตรแต่ละแบบภายในภาควิชา */
+.dept-curriculum {
+  font-size: 13.5px;
+  color: #333333;
+  line-height: 1.8;
+}
+
+.dept-curriculum p {
+  font-weight: 700;
+  margin-top: 16px;
+  margin-bottom: 4px;
+}
+
+.dept-curriculum p:first-child {
+  margin-top: 0;
+}
+
+.dept-curriculum ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.dept-curriculum li {
+  margin-bottom: 2px;
+}
+
+
+/* แถวเนื้อหา : รายละเอียดหลักสูตร (เต็มความกว้าง) + สื่อประชาสัมพันธ์ (ลอยชิดขวา ให้ข้อความไหลอ้อม) */
+.dept-detail-body {
+  overflow: hidden; /* clearfix ให้ครอบคลุมความสูงของ float ด้านใน */
+}
+
+.dept-detail-body .dept-curriculum {
+  width: 100%;
+}
+
+.dept-media {
+  float: right;
+  width: 260px;
+  margin-left: 24px;
+  margin-bottom: 16px;
+  background-color: #f7a35e;
+  border-radius: 14px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.dept-media-banner {
+  background: linear-gradient(135deg, #123a6b, #0b2545);
+  border-radius: 10px;
+  padding: 24px 16px;
+  text-align: center;
+}
+
+.dept-media-banner-tag {
+  color: #f2a71b;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.dept-media-banner-title {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.3;
+  margin: 8px 0;
+}
+
+.dept-media-banner-sub {
+  color: #9fb2c9;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.dept-media-icon-box {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 26px 16px;
+  text-align: center;
+}
+
+.dept-media-icon-box .dept-icon {
+  width: 70px;
+  margin-bottom: 10px;
+}
+
+.dept-media-caption {
+  font-size: 12px;
+  color: #555555;
+}
+/* =========================================================
+   [11] TECHNO.HTML — หน้ารายชื่อภาควิชาแบบใหม่
+   ========================================================= */
+/* =========================================================
+   15) หน้ารายชื่อภาควิชา แบบใหม่ (Techno.html)
+   ========================================================= */
+.course-list2 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.course-card1 {
+  background-color: #3c3c3c;
+  border-radius: 14px;
+  padding: 22px 26px;
+}
+
+.course-card-title2 {
+  display: block;
+  color: #f2721f;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.course-card-title1 {
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+/* แถวจัดวาง รูป + ปุ่ม + คำอธิบาย ให้อยู่แนวเดียวกัน */
+.course-card-body2 {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.course-imagenew {
+  width: 110px;
+  height: 110px;
+  flex-shrink: 0;
+  background-color: #ffffff;
+  border-radius: 10px;
+  object-fit: contain;
+  padding: 14px;
+  box-sizing: border-box;
+  display: block;
+}
+
+.btn-department2 {
+  display: inline-block;
+  flex-shrink: 0;
+  background-color: #f2721f;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 14px 22px;
+  border-radius: 8px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.btn-department2 h2 {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.btn-department2:hover {
+  background-color: #d9600f;
+  transition: 0.2s;
+}
+
+.course-card-desc2 {
+  flex: 1 1 300px;
+  color: #e6e6e6;
+  font-size: 12.5px;
+  line-height: 1.9;
+}
+
+@media (max-width: 768px) {
+  .course-card-body2 {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn-department2 {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* =========================================================
+   [12] SHARED RESPONSIVE ≤ 768px — การจัดหน้าเมื่อจอแคบ
+   ใช้ร่วมหลายหน้า
+   ========================================================= */
+/* =========================================================
+   11) ปรับหน้าเว็บสำหรับจอมือถือ / จอแคบ (Responsive)
+   เมื่อความกว้างหน้าจอน้อยกว่า 768px ให้ใช้กฎด้านล่างนี้แทน
+   ========================================================= */
+@media (max-width: 768px) {
+
+  /* เปลี่ยนจากวางเมนู-เนื้อหาซ้ายขวา ให้วางซ้อนกันบน-ล่างแทน */
+  .page {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 24px;
+  }
+
+  .content {
+    padding: 28px 20px;
+  }
+
+  .hero-title {
+    font-size: 28px;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .footer {
+    padding: 28px 20px;
+  }
+
+  .footer-copyright {
+    text-align: left;
+  }
+
+  /* ฟอร์ม: ให้รูปโปรไฟล์ขึ้นก่อน แล้วช่องกรอกไล่ตามลงมาด้านล่าง */
+  .form-row {
+    flex-direction: column;
+  }
+
+  .photo-upload {
+    margin: 0 auto;
+  }
+
+  .form-panel-footer {
+    justify-content: stretch;
+  }
+
+  .btn-cancel,
+  .btn-save {
+    flex: 1;
+  }
+
+  /* หน้าติดต่อเรา: ให้แผนที่มีความสูงพอดูบนจอมือถือ */
+  .contact-map {
+    min-height: 240px;
+  }
+
+  .tcas-layout {
+    flex-direction: column;
+  }
+
+  .tcas-left {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  .coutar70 {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .btn-back,
+  .btn-orangeTcas {
+    padding: 14px 20px;
+  }
+
+  .course-card {
+    flex: 1 1 100%;
+  }
+
+  .dept-card-body {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .dept-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .dept-detail-header {
+    flex-direction: column;
+  }
+
+  .btn-dept-back {
+    align-self: flex-start;
+  }
+
+  .dept-media {
+    float: none;
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+/* =========================================================
+   [13] COUTARTCAS70.HTML — หน้าโควตา TCAS70
+   ========================================================= */
+/* =========================================================
+   12) หน้าโควตา TCAS (Coutartcas70.html)
+   ========================================================= */
+
+/* แถวจัดวาง 2 คอลัมน์ : รูปโควตา+ปุ่มสมัคร (ซ้าย) กับกล่องรายละเอียด (ขวา) */
+.tcas-layout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 28px;
+  margin-bottom: 24px;
+}
+
+/* คอลัมน์ซ้าย : รูปภาพ + ปุ่มสมัครนักศึกษา เรียงในแนวตั้ง */
+.tcas-left {
+  flex: 0 0 330px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.coutar70 {
+  width: 330px;
+  height: 330px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-orangeTcas {
+  display: block;
+  background-color: #ffbb8b;
+  color: #000000;
+  border: 1px solid #ed4903;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 16px 24px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.btn-orangeTcas:hover {
+  background-color: #f06603;
+  color: #f7f3f3;
+  box-shadow: 0 0px 10px #000000;
+  transition: 0.2s;
+}
+
+/* คอลัมน์ขวา : กล่องรายละเอียดสีส้ม พร้อมข้อความและปุ่มรายละเอียด */
+.contact-cardsmall {
+  background-color: #f7a35e;
+  border: 1px solid #ed4903;
+  border-radius: 12px;
+  padding: 24px 24px 84px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1 1 380px;
+  min-width: 280px;
+  position: relative;
+}
+
+.contact-info-title2 {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.9;
+  color: #1b1b1b;
+  max-height: 380px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.btn-onlyinBox {
+  display: inline-block;
+  background-color: #ff7d21;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 14px 28px;
+  border-radius: 8px;
+  position: absolute;
+  bottom: 20px;
+  right: 24px;
+}
+
+.btn-onlyinBox:hover {
+  background-color: #ffbb8b;
+  color: #1b1b1b;
+  box-shadow: 0 0px 10px #000000;
+  transition: 0.2s;
+}
+
+/* ปุ่มย้อนกลับด้านล่างหน้า */
+.btn-back {
+  display: inline-block;
+  background-color: #ff7d21;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 16px 40px;
+  border-radius: 8px;
+}
+
+.btn-back:hover {
+  background-color: #ffbb8b;
+  color: #1b1b1b;
+  box-shadow: 0 0px 10px #000000;
+  transition: 0.2s;
+}
+.btn-onlyinBox369,
+.btn-onlyinBox3692 {
+  display: inline-block;
+  background-color: #ff7d21;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 12px 22px;
+  border-radius: 8px;
+  align-self: flex-end;
+}
+
+.btn-onlyinBox3692 {
+  font-size: 15px;
+  padding: 16px 30px;
+  margin-top: auto;
+}
+
+.btn-onlyinBox369:hover,
+.btn-onlyinBox3692:hover {
+  background-color: #ffbb8b;
+  color: #1b1b1b;
+  box-shadow: 0 0px 10px #000000;
+  transition: 0.2s;
+}
+.card2 {
+  background-color: #ff80198e;
+  border: 1px solid #000000;
+  border-radius: 12px;
+  padding: 20px;
+  height: 680px;
+  flex-grow: 1;
+  box-shadow: 0 4px 8px #4a4a4a;
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 20px;
+  align-items: center;
+}
+.card-IM {
+  background-color: #ff80198e;
+  border: 1px solid #000000;
+  border-radius: 12px;
+  padding: 20px;
+  height: 650px;
+  flex-grow: 1;
+  box-shadow: 0 4px 8px #4a4a4a;
+}
+.card-IM-imagenew3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+}
+.course-imagenew3 {
+  text-align: center;
+  width: 50%;
+  height: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #000000;
+  box-shadow: 0 4px 8px #4a4a4a;
+  top: 100%;
+}
+.course-imagenew2 {
+  border-radius: 10px;
+  margin-bottom: 10px;
+  width: 306px;
+  height: 306px;
+  object-fit: cover;
+  border: 1px solid #000000;
+  box-shadow: 0 4px 8px #4a4a4a;
+}
+.btn-department-3{
+  display: inline;
+  background-color: #f86c07;
+  color: #f3f2f1;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 10px 30px;
+  border-radius: 8px;
+  box-shadow: 0 0px 10px #000000;
+}
+.btn-department-3:hover {
+  background-color: #e0aa86;
+  color: #ffffff;
+  transition: 0.4s;
+}
+.card3 {
+  display: flex;
+  justify-content: space-between;
+}
+.cardNew {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 50px;
+  height: auto;
+  flex-grow: 1;
+  box-shadow: 0 4px 8px #4a4a4a;
+}
+.contact-card2 {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  box-shadow: 0 4px 8px #4a4a4a;
+  height: auto;  /* ความสูงของกล่องใหญ่ */
+}
+/* =========================================================
+   [14] IT.HTML + IM.HTML — หน้ารายละเอียดภาควิชา IT / IM
+   ========================================================= */
+/* =========================================================
+   16) หน้ารายละเอียดภาควิชา IT / IM (IT.html, IM.html)
+   ========================================================= */
+.deptpage-tag {
+  color: #f2721f;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.deptpage-title {
+  color: #1b1b1b;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* กล่องข้อความรายละเอียดหลักสูตร (ฝั่งซ้ายของ .card2 / .card-IM) */
+.IT-title1 {
+  color: #333333;
+  font-size: 13.5px;
+  line-height: 1.8;
+}
+
+.IT-title1 h3 {
+  color: #1b1b1b;
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: 14px;
+  margin-bottom: 4px;
+}
+
+.IT-title1 h3:first-child {
+  margin-top: 0;
+}
+
+/* กล่องรูปภาพฝั่งขวาของ .card2 */
+.IT-photo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+/* =========================================================
+   [15] SHARED IMAGE RESPONSIVE — ปรับรูปภาพตามขนาดหน้าจอ
+   ========================================================= */
+/* =========================================
+   RESPONSIVE : ปรับขนาดรูปภาพตามหน้าจอ
+   ========================================= */
+
+/* รูปภาพทั่วไป */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* รูปภาพส่วนเนื้อหาทั่วไป */
+.responsive-img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-left: 0;
+    overflow: hidden;
+}
+
+.responsive-img img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* รูปภาพหน้า Responsive-Colta */
+.responsive-Colta {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.responsive-Colta img {
+    width: 100%;
+    max-width: 550px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* รูปภาพในการ์ด */
+.card-image {
+    width: 100%;
+    max-width: 290px;
+    aspect-ratio: 29 / 22;
+    height: auto;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* รูปภาพหลักสูตร */
+.course-image {
+    width: 100%;
+    height: clamp(160px, 22vw, 200px);
+    object-fit: cover;
+}
+
+/* รูปภาพ TCAS */
+.coutar70 {
+    width: 100%;
+    max-width: 330px;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    object-fit: cover;
+}
+
+/* รูปภาพหลักสูตร IT / IM */
+.course-imagenew2 {
+    width: 100%;
+    max-width: 306px;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    object-fit: cover;
+}
+
+/* =========================================
+   TABLET : หน้าจอไม่เกิน 1024px
+   ========================================= */
+/* =========================================================
+   [16] RESPONSIVE TABLET ≤ 1024px — ปรับทั้งเว็บไซต์สำหรับแท็บเล็ต
+   ========================================================= */
+@media (max-width: 1024px) {
+
+    .content {
+        padding: 24px;
+    }
+
+    .card-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+        padding: 24px;
+        height: auto;
+    }
+
+    .card2 {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 300px);
+        height: auto;
+    }
+
+    .card-IM {
+        height: auto;
+    }
+
+    .hero {
+        gap: 24px;
+    }
+
+    .hero-image {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+
+/* =========================================================
+   [17] RESPONSIVE MOBILE ≤ 768px — ปรับทั้งเว็บไซต์สำหรับมือถือ
+   ========================================================= */
+/* =========================================
+   MOBILE : หน้าจอไม่เกิน 768px
+   ========================================= */
+@media (max-width: 768px) {
+
+    .page {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 20px;
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .content {
+        width: 100%;
+        padding: 20px 16px;
+    }
+
+    .hero {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+
+    .hero-text {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    .hero-image {
+        flex: 1 1 auto;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .card-list {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .card {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+    }
+
+    .card-image {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .contact-card,
+    .contact-card2 {
+        height: auto;
+        padding: 20px;
+    }
+
+    .contact-map {
+        width: 100%;
+        min-height: 240px;
+    }
+
+    .tcas-layout {
+        flex-direction: column;
+    }
+
+    .tcas-left {
+        flex: 1 1 auto;
+        width: 100%;
+        align-items: center;
+    }
+
+    .coutar70 {
+        width: 100%;
+        max-width: 330px;
+    }
+
+    .card2 {
+        grid-template-columns: minmax(0, 1fr);
+        height: auto;
+    }
+
+    .card-IM {
+        height: auto;
+    }
+
+    .course-imagenew2 {
+        max-width: 100%;
+    }
+
+    .dept-media {
+        float: none;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .footer {
+        padding: 24px 16px;
+    }
+}
+
+/* =========================================================
+   [18] RESPONSIVE SMALL MOBILE ≤ 480px — จอมือถือขนาดเล็ก
+   ========================================================= */
+/* =========================================
+   SMALL MOBILE : หน้าจอไม่เกิน 480px
+   ========================================= */
+@media (max-width: 480px) {
+
+    .content {
+        padding: 16px 12px;
+    }
+
+    .hero-title {
+        font-size: clamp(22px, 6vw, 28px);
+    }
+
+    .page-header-title {
+        font-size: 22px;
+    }
+
+    .card,
+    .card2,
+    .card-IM,
+    .cardNew {
+        padding: 16px;
+    }
+
+    .responsive-Colta img {
+        width: 100%;
+    }
+
+    .course-card {
+        flex: 1 1 100%;
+        min-width: 0;
+    }
+
+    .course-card-body2 {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .course-imagenew {
+        align-self: center;
+    }
+
+    .btn-department2 {
+        width: 100%;
+        white-space: normal;
+    }
+
+    .form-card,
+    .form-panel-header {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .form-panel-footer {
+        padding: 16px;
+    }
+
+    .dept-detail-card {
+        padding: 16px;
+    }
+}
