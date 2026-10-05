@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สมัครเรียบร้อยแล้ว | มจพ. KMUTNB</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<div class="page">
+    <!-- =========================================================
+         SIDEBAR — โครงสร้างเดียวกับหน้า apply.html
+         ========================================================= -->
+    <aside class="sidebar">
+        <img alt="โลโก้ KMUTNB" class="logo" src="assets/logo.png">
+        <p class="sidebar-subtitle">
+            KING MONGKUT'S UNIVERSITY<br>
+            OF TECHNOLOGY NORTH<br>
+            BANGKOK
+        </p>
+
+        <nav class="menu">
+            <a class="menu-item" href="index.html">หน้าหลัก</a>
+            <a class="menu-item" href="application.html">ข้อมูลการรับสมัคร</a>
+            <a class="menu-item" href="course.html">หลักสูตรที่เปิดรับ</a>
+            <a class="menu-item menu-item-active" href="apply.html">สมัครนักศึกษา</a>
+            <a class="menu-item" href="contact.html">ติดต่อเรา</a>
+        </nav>
+
+        <img alt="รูปเฟือง KMUTNB" class="gear-image" src="assets/gears.png">
+        <div class="orange-strip"></div>
+    </aside>
+
+    <!-- =========================================================
+         MAIN CONTENT
+         ========================================================= -->
+    <main class="content">
+        <section class="application-success-panel">
+            <header class="application-success-header">
+                <p class="application-success-tag">APPLICATION STATUS</p>
+                <h1 class="application-success-title">ผลการสมัครนักศึกษา</h1>
+                <p class="application-success-subtitle">ตรวจสอบข้อมูลการสมัครของคุณได้จากเลขที่ใบสมัครด้านล่าง</p>
+            </header>
+
+            <div class="application-success-body">
+                <div class="success-check" aria-hidden="true"><span>✓</span></div>
+
+                <h2 class="success-heading">สมัครเรียบร้อยแล้ว</h2>
+
+                <p class="success-description">
+                    ขอบคุณที่สมัครเข้าศึกษาต่อกับมหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ
+                </p>
+
+                <div class="application-number-card">
+                    <p class="application-number-label">เลขที่ใบสมัคร</p>
+                    <p class="application-number" id="applicationNumber">KMUTNB-2570-700001</p>
+                </div>
+
+                <div class="success-status">บันทึกข้อมูลการสมัครเรียบร้อยแล้ว</div>
+
+                <p class="success-note">
+                    กรุณาบันทึกหรือพิมพ์เลขที่ใบสมัครนี้ไว้เป็นหลักฐาน และใช้เลขที่ใบสมัครสำหรับตรวจสอบผลการพิจารณา
+                    รวมถึงขั้นตอนการชำระค่าสมัครสอบผ่านหน้าตรวจสอบสถานะการสมัครในภายหลัง
+                </p>
+            </div>
+
+            <div class="application-success-footer">
+                <a class="success-button success-button-home" href="index.html">กลับหน้าแรก</a>
+                <button class="success-button success-button-print" type="button" onclick="window.print()">พิมพ์ใบสมัคร</button>
+            </div>
+        </section>
+    </main>
+</div>
+
+<!-- =========================================================
+     FOOTER — ใช้โครงสร้างเดียวกับเว็บไซต์หลัก
+     ========================================================= -->
+<footer class="footer">
+    <div class="footer-top">
+        <div class="footer-brand">
+            <img alt="โลโก้ KMUTNB" class="footer-logo" src="assets/logo.png">
+            <p class="footer-address">
+                มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ<br>
+                1518 ถ.ประชาราษฎร์ 1 แขวงวงศ์สว่าง เขตบางซื่อ<br>
+                กรุงเทพมหานคร 10800<br>
+                <img alt="" class="phone-icon" src="assets/phone.png">
+                0 2555 2000
+            </p>
+        </div>
+
+        <div class="footer-social">
+            <p class="footer-social-title">ติดตามเรา</p>
+            <div class="social-icons">
+                <a href="#"><img alt="Facebook" src="assets/fb.png"></a>
+                <a href="#"><img alt="LINE" src="assets/line.png"></a>
+                <a href="#"><img alt="Instagram" src="assets/ig.png"></a>
+            </div>
+        </div>
+    </div>
+
+    <p class="footer-copyright">© 2026 KMUTNB All rights reserved.</p>
+</footer>
+
+<script>
+    const applicationNumber = localStorage.getItem("kmutnbApplicationNumber");
+    if (applicationNumber) {
+        document.getElementById("applicationNumber").textContent = applicationNumber;
+    }
+</script>
+</body>
+</html>
